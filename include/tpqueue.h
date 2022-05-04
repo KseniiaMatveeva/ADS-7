@@ -11,7 +11,7 @@ class TPQueue {
     Item * next;
     Item * prev;
   };
-  TPQueue :: Item * TRQueue :: creat(const T& value) {
+  TPQueue :: Item * TPQueue :: creat(const T& value) {
     Item * item = new Item;
     item -> value = value;
     item -> next = nullptr;
@@ -19,7 +19,8 @@ class TPQueue {
     return item;
   }
   Item * head, * tail, * current;
-  public:
+  
+ public:
   void push(const T& value) {
     Item * h = head;
     Item * v = creat(value);
@@ -46,10 +47,10 @@ class TPQueue {
     }
   }
   T pop() {
+    T value = head -> value;
     if (head -> next) {
       Item* zam = head -> next;
       head -> prev  = nullptr;
-      T value = head -> value;
       delete head;
       head = zam;
     } else {
