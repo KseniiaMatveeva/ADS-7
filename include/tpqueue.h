@@ -11,7 +11,7 @@ class TPQueue {
     Item * next;
     Item * prev;
   };
-  TPQueue :: Item * TPQueue :: creat(const T& value) {
+  TPQueue<T> :: Item * TPQueue<T> :: creat(const T& value) {
     Item * item = new Item;
     item -> value = value;
     item -> next = nullptr;
@@ -19,7 +19,7 @@ class TPQueue {
     return item;
   }
   Item * head, * tail, * current;
-  
+ 
  public:
   void push(const T& value) {
     Item * h = head;
