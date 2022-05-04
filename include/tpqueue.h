@@ -28,7 +28,35 @@ class TPQueue {
       Item * v = creat(value);
       while (h && h -> value.prior >= value.prior) {
         h = h -> next;
-        
+        if (!h -> prev) {
+          head -> prev = v;
+          v -> next = head;
+          head = v;
+        } else if (!h && head) {
+          tail -> next = v;
+          v -> prev = tail;
+          tail = v;
+        } else {
+          h -> prev -> next = v;
+          v -> prev = h -> prev;
+          v -> next = h;
+          h -> prev = v;
+        }
+      }
+    }
+  }
+  T pop() {
+    if (head -> next) {
+      ITEM* zam = head -> next;
+      h -> prev  = nullptr;
+      T value = head -> value;
+      delete head;
+      head = zam;
+    } else {
+      tail = nullptr;
+    }
+    return value;
+  }
 };
 
 struct SYM {
