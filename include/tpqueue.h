@@ -5,11 +5,11 @@
 template<typename T>
 class TPQueue {
   // реализация шаблона очереди с приоритетом на связанном списке
-  private:
+ private:
   struct Item {
     T value;
-    TItem * next;
-    TItem * prev;
+    Item * next;
+    Item * prev;
   };
   TPQueue :: Item * TRQueue :: creat(const T& value) {
     Item * item = new Item;
@@ -21,11 +21,11 @@ class TPQueue {
   Item * head, * tail, * current;
  public:
   void push(const T& value) {
+    Item * h = head;
+    Item * v = creat(value);
     if (!(head && tail)) {
       head = tail = creat(value);
     } else {
-      Item * h = head;
-      Item * v = creat(value);
       while (h && h -> value.prior >= value.prior) {
         h = h -> next;
         if (!h -> prev) {
@@ -47,7 +47,7 @@ class TPQueue {
   }
   T pop() {
     if (head -> next) {
-      ITEM* zam = head -> next;
+      Item* zam = head -> next;
       h -> prev  = nullptr;
       T value = head -> value;
       delete head;
