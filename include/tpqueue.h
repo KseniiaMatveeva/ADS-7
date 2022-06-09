@@ -47,15 +47,17 @@ class TPQueue {
 
   T pop() {
     T value = head -> value;
-    if (head) {
-      Item* zam = head -> next;
-      head -> prev  = nullptr;
-      delete head;
-      head = zam;
-    } else {
-      tail = nullptr;
+    if (head && tail) {
+      if (head) {
+        Item* zam = head -> next;
+        zam -> prev  = nullptr;
+        delete head;
+        head = zam;
+      } else {
+        tail = nullptr;
+      }
+      return value;
     }
-    return value;
   }
 };
 
