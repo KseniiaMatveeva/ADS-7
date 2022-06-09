@@ -27,12 +27,12 @@ class TPQueue {
     while (h && h -> value.prior >= value.prior) {
       h = h -> next;
     }
-    if (!h && !head) {
-      head = tail = v;
-    } else if (!h && head) {
+   if (!h && head) {
       tail -> next = v;
       v -> prev = tail;
       tail = v;
+    } else if (!h && !head) {
+      head = tail = v;
     } else if (!h -> prev) {
       head -> prev = v;
       v ->  next = head;
@@ -40,8 +40,8 @@ class TPQueue {
     } else {
       h -> prev -> next = v;
       v -> prev = h -> prev;
-      v -> next = h;
       h -> prev = v;
+      v -> next = h;
     }
   }
 
