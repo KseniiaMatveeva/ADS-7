@@ -60,7 +60,6 @@ class TPQueue {
     return value;
   }
 };
-};
 
 struct SYM {
   char ch;
