@@ -27,7 +27,7 @@ class TPQueue {
     while (h && h -> value.prior >= value.prior) {
       h = h -> next;
     }
-   if (!h && head) {
+    if (!h && head) {
       tail -> next = v;
       v -> prev = tail;
       tail = v;
