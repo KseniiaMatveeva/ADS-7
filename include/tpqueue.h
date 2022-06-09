@@ -42,7 +42,6 @@ class TPQueue {
       v -> prev = h -> prev;
       v -> next = h;
       h -> prev = v;
-      }
     }
   }
 
