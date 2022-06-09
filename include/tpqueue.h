@@ -50,7 +50,9 @@ class TPQueue {
     if (head && tail) {
       if (head) {
         Item* zam = head -> next;
-        zam -> prev  = nullptr;
+        if (zam) {
+          zam -> prev  = nullptr;
+        }
         delete head;
         head = zam;
       } else {
