@@ -20,6 +20,7 @@ class TPQueue {
   Item * head, * tail, * current;
 
  public:
+  TPQueue(): head(nullptr), tail(nullptr) {}
   void push(const T& value) {
     Item * h = head;
     Item * v = creat(value);
