@@ -27,17 +27,17 @@ class TPQueue {
     while (h && h -> value.prior >= value.prior) {
       h = h -> next;
     }
-    if (!(head && tail)) {
-      head = tail = creat(value);
+    if (!h && !head) {
+      head = tail = v;
     } else {
-      if (!h -> prev) {
-        head -> prev = v;
-        v -> next = head;
-        head = v;
-      } else if (!h && head) {
+      if (!h && head) {
         tail -> next = v;
         v -> prev = tail;
         tail = v;
+      } else if (!h -> prev) {
+        head -> prev = v;
+        v ->  next = head;
+        head = v;
       } else {
         h -> prev -> next = v;
         v -> prev = h -> prev;
@@ -45,18 +45,6 @@ class TPQueue {
         h -> prev = v;
       }
     }
-  }
-  T pop() {
-    T value = head -> value;
-    if (head) {
-      Item* zam = head -> next;
-      head -> prev  = nullptr;
-      delete head;
-      head = zam;
-    } else {
-      tail = nullptr;
-    }
-    return value;
   }
 };
 
