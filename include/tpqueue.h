@@ -46,8 +46,8 @@ class TPQueue {
       }
     }
   }
- 
- T pop() {
+
+  T pop() {
     T value = head -> value;
     if (head) {
       Item* zam = head -> next;
