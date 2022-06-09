@@ -29,20 +29,19 @@ class TPQueue {
     }
     if (!h && !head) {
       head = tail = v;
+    } else if (!h && head) {
+      tail -> next = v;
+      v -> prev = tail;
+      tail = v;
+    } else if (!h -> prev) {
+      head -> prev = v;
+      v ->  next = head;
+      head = v;
     } else {
-      if (!h && head) {
-        tail -> next = v;
-        v -> prev = tail;
-        tail = v;
-      } else if (!h -> prev) {
-        head -> prev = v;
-        v ->  next = head;
-        head = v;
-      } else {
-        h -> prev -> next = v;
-        v -> prev = h -> prev;
-        v -> next = h;
-        h -> prev = v;
+      h -> prev -> next = v;
+      v -> prev = h -> prev;
+      v -> next = h;
+      h -> prev = v;
       }
     }
   }
