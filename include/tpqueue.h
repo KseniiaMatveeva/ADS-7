@@ -46,6 +46,20 @@ class TPQueue {
       }
     }
   }
+ 
+ T pop() {
+    T value = head -> value;
+    if (head) {
+      Item* zam = head -> next;
+      head -> prev  = nullptr;
+      delete head;
+      head = zam;
+    } else {
+      tail = nullptr;
+    }
+    return value;
+  }
+};
 };
 
 struct SYM {
