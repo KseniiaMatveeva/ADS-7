@@ -56,8 +56,8 @@ class TPQueue {
       } else {
         tail = nullptr;
       }
-      return value;
     }
+  return value;
   }
 };
 
